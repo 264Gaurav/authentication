@@ -23,7 +23,7 @@ const refreshTokenController = async (req, res) => {
         }
 
         // Generate access token
-        const accessToken = jwt.sign({ id: user._id, userType: user.userType }, process.env.ACCESS_SECRET_KEY, { expiresIn: '1h' });
+        const accessToken = jwt.sign({ id: user._id, userType: user.userType }, process.env.ACCESS_SECRET_KEY, { expiresIn: '30s' });
 
         // Set access token in header
         res.setHeader('Authorization', `Bearer ${accessToken}`);
