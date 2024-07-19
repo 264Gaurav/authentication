@@ -19,7 +19,7 @@ const loginController = async (req, res) => {
         }
 
         // Generate access token
-        const accessToken = jwt.sign({ id: user._id, userType: user.userType }, process.env.ACCESS_SECRET_KEY, { expiresIn: '30s' });
+        const accessToken = jwt.sign({ id: user._id, userType: user.userType }, process.env.ACCESS_SECRET_KEY, { expiresIn: '1h' });
 
         // Generate refresh token
         const refreshToken = jwt.sign({ id: user._id }, process.env.REFRESH_SECRET_KEY, { expiresIn: '1y' });
